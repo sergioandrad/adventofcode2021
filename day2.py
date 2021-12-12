@@ -1,9 +1,8 @@
 ##################################################################################
-# Day 2: Dive!
+# Day 3: Dive!
 # Autor: Sergio Henrique Andrade de Azevedo;
 # Descricao: Desafio 1 do Advent of Code;
-# Count the number of times a depth measurement increases from the previous measurement.
-# (There is no measurement before the first measurement.)
+# Using the inputs calculate the final depth and position of the submarine.
 ##################################################################################
 
 # Libraries, working directory and inputs
@@ -26,8 +25,6 @@ data.assign(command = data['input'].map(lambda x: x.split(sep=' ')[0]),
                                  ).assign(result = lambda df: (df['down']-df['up'])*df['forward'])
 
 # Solution: Part 2
-
-
 inputs = data['input'].map(lambda x: x.split(' '))
 
 depth = int(0)
