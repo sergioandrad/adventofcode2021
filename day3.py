@@ -51,32 +51,32 @@ filterDigitL = 1-filterDigitM
 
 mostCommon.append(filterDigitM)
 filteredM = digitsDf.query('d0==@mostCommon[0]')
-cutM = len(filteredM.index)
+lenM = len(filteredM.index)
 
 leastCommon.append(filterDigitL)
 filteredL = digitsDf.query('d0==@leastCommon[0]')    
-cutL = len(filteredL.index)
+lenL = len(filteredL.index)
 
 for i in range(11):
     print(i)
    # most common digits
    # selection step
-    filterDigitM = majorDigit(filteredM.iloc[:,i+1].agg('sum'),cutM/2)
+    filterDigitM = majorDigit(filteredM.iloc[:,i+1].agg('sum'),lenM/2)
     mostCommon.append(filterDigitM)
    # filter step 
     filteredM    = filteredM.query('d'+str(i+1)+'==@filterDigitM')
-    cutM = len(filteredM.index)
-    if cutM==1: break
+    lenM = len(filteredM.index)
+    if lenM==1: break
     print(filteredM)
     
 for i in range(11):    
     print(i)
    # least common digits
-    filterDigitL = 1-majorDigit(filteredL.iloc[:,i+1].agg('sum'),cutL/2)
+    filterDigitL = 1-majorDigit(filteredL.iloc[:,i+1].agg('sum'),lenL/2)
     leastCommon.append(filterDigitL) 
     filteredL    = filteredL.query('d'+str(i+1)+'==@filterDigitL')
-    cutL = len(filteredL.index)
-    if cutL==1: break
+    lenL = len(filteredL.index)
+    if lenL==1: break
     print(filteredL)
 
 rate0=''
